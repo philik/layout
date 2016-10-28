@@ -1,6 +1,16 @@
 jQuery UI Layout
 ================
 
+1.4.4 - 1.5.12
+----------------
+- **Responsiveness added directly to pane options. Use with .addToggle() to add a button to show in a certain state
+- **JQuery 3 Full Compatibility. Updated to use on instead of bind, remove the incompatible line from other post
+- **Bootstrap Compatibility. Updated to fully support drown downs and others easily
+- **Removed default demo page theming. Allows for full styling from a blank canvas in the css file
+- **resizeJQuery function that runs all 3 (Accordion, Tab, Datatable) in a single call to onresize_end
+- **Fixed bug where onResizeEnd would fail on resize if no function was supplied
+
+
 The Ultimate Page Layout Manager
 --------------------------------
 
