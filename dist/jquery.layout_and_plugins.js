@@ -57,7 +57,7 @@
                 function g(f) {
                     return f;
                 }
-                ; // compiler hack
+                // compiler hack
             }
         ;
 
@@ -457,7 +457,6 @@
                     else
                         CSS[p] = style[p];
                 }
-                ;
                 return CSS
             }
 
@@ -626,12 +625,11 @@
                         + '<ul style="font-size: 13px; font-weight: none; list-style: none; margin: 0; padding: 0 0 2px;"></ul>'
                         + '</div>'
                     ).appendTo("body");
-                    $e.css('left', $(window).width() - $e.outerWidth() - 5)
+                    $e.css('left', $(window).width() - $e.outerWidth() - 5);
                     if ($.ui.draggable)
                         $e.draggable({handle: ':first-child'});
                     return $e;
                 }
-                ;
             }
 
         };
@@ -666,7 +664,6 @@
                 , boxModel: bm
                 , boxSizing: !!(typeof bs === "function" ? bs() : bs)
             };
-            ;
             if (b)
                 lb[b] = true; // set CURRENT browser
             /* OLD versions of jQuery only set $.support.boxModel after page is loaded
@@ -1019,7 +1016,6 @@
                     }
                     return D;
                 }
-                ;
             }
 
             /**
@@ -1229,7 +1225,7 @@
                     function g(f) {
                         return f;
                     }
-                    ; // compiler hack
+                    // compiler hack
                 }
 
 
@@ -1464,7 +1460,6 @@
                             r.max = left + W - minSize - rW;
                             break;
                     }
-                    ;
                 }
 
                 /**
@@ -1985,7 +1980,7 @@
 
                         if (o.inset && !$.isPlainObject(o.inset)) {
                             // can specify a single number for equal outset all-around
-                            n = parseInt(o.inset, 10) || 0
+                            n = parseInt(o.inset, 10) || 0;
                             o.inset = {
                                 top: n
                                 , bottom: n
@@ -2007,7 +2002,7 @@
                                 };
                             } else if (!$.isPlainObject(o.outset)) {
                                 // can specify a single number for equal outset all-around
-                                n = parseInt(o.outset, 10) || 0
+                                n = parseInt(o.outset, 10) || 0;
                                 o.outset = {
                                     top: n
                                     , bottom: n
@@ -2250,7 +2245,7 @@
                  * @param {string} pane  The pane to process
                  */
                 , getPane = function (pane) {
-                    var sel = options[pane].paneSelector
+                    var sel = options[pane].paneSelector;
                     if (sel.substr(0, 1) === "#") // ID selector
                     // NOTE: elements selected 'by ID' DO NOT have to be 'children'
                         return $N.find(sel).eq(0);
@@ -2790,7 +2785,7 @@
                                 // SET RESIZER LIMITS - used in drag()
                                 setSizeLimits(pane); // update pane/resizer state
                                 r = s.resizerPosition;
-                                lastPos = ui.position[side]
+                                lastPos = ui.position[side];
 
                                 $R.addClass(resizerClass + " " + resizerPaneClass); // add drag classes
                                 helperClassesSet = false; // reset logic var - see drag()
@@ -2880,7 +2875,6 @@
                                 resizerPos = sC.layoutWidth - dragPos.left - o.spacing_open;
                                 break;
                         }
-                        ;
                         // remove container margin from resizer position to get the pane size
                         var newSize = resizerPos - sC.inset[c.side];
 
@@ -2963,7 +2957,7 @@
                         if (s.isVisible && (o.maskObjects || (!a.objectsOnly && o.maskContents))) {
                             getMasks(p).each(function () {
                                 sizeMask.call(this);
-                                this.style.zIndex = s.isSliding ? z.pane_sliding + 1 : z.pane_normal + 1
+                                this.style.zIndex = s.isSliding ? z.pane_sliding + 1 : z.pane_normal + 1;
                                 this.style.display = "block";
                             });
                         }
@@ -3507,7 +3501,6 @@
                             close_2();
                             queueNext();
                         }
-                        ;
                     });
 
                     // SUBROUTINE
@@ -3693,7 +3686,6 @@
                             open_2();  // continue
                             queueNext();
                         }
-                        ;
                     });
 
                     // SUBROUTINE
@@ -3711,8 +3703,6 @@
                         // set classes, position handles and execute callbacks...
                         setAsOpen(pane);
                     }
-                    ;
-
                 }
 
                 /**
@@ -3740,9 +3730,9 @@
                         .addClass(rClass + _open + " " + rClass + _pane + _open)
                     ;
                     if (s.isSliding)
-                        $R.addClass(rClass + _sliding + " " + rClass + _pane + _sliding)
+                        $R.addClass(rClass + _sliding + " " + rClass + _pane + _sliding);
                     else // in case 'was sliding'
-                        $R.removeClass(rClass + _sliding + " " + rClass + _pane + _sliding)
+                        $R.removeClass(rClass + _sliding + " " + rClass + _pane + _sliding);
 
                     removeHover(0, $R); // remove hover classes
                     if (o.resizable && $.layout.plugins.draggable)
@@ -3826,7 +3816,6 @@
                         else if (!s.isMoving)
                             open(pane, true); // true = slide - open() will handle binding
                     }
-                    ;
                 }
 
                 , slideClose = function (evt_or_pane) {
@@ -3841,13 +3830,13 @@
                     if (pane === "center")
                         return; // validate
                     if (s.isClosed || s.isResizing)
-                        return; // skip if already closed OR in process of resizing
+                    // skip if already closed OR in process of resizing
                     else if (o.slideTrigger_close === "click")
                         close_NOW(); // close immediately onClick
                     else if (o.preventQuickSlideClose && s.isMoving)
-                        return; // handle Chrome quick-close on slide-open
+                    // handle Chrome quick-close on slide-open
                     else if (o.preventPrematureSlideClose && evt && $.layout.isMouseOverElem(evt, $Ps[pane]))
-                        return; // handle incorrect mouseleave trigger, like when over a SELECT-list in IE
+                    // handle incorrect mouseleave trigger, like when over a SELECT-list in IE
                     else if (evt) // trigger = mouseleave - use a delay
                     // 1 sec delay if 'opening', else .3 sec
                         timer.set(pane + "_closeSlider", close_NOW, max(o.slideDelay_close, delay));
@@ -3863,7 +3852,6 @@
                         else if (!s.isMoving)
                             close(pane); // close will handle unbinding
                     }
-                    ;
                 }
 
                 /**
@@ -4207,8 +4195,6 @@
                             }
                             queueNext();
                         }
-                        ;
-
                     });
 
                     // SUBROUTINE
@@ -4378,7 +4364,7 @@
                         } else { // for east and west, set only the height, which is same as center height
                             // set state.min/maxWidth/Height for makePaneFit() logic
                             if (s.isVisible && !s.noVerticalRoom)
-                                $.extend(s, elDims($P), cssMinDims(pane))
+                                $.extend(s, elDims($P), cssMinDims(pane));
                             if (!force && !s.noVerticalRoom && newCenter.height === s.outerHeight) {
                                 $P.css(visCSS);
                                 return true; // SKIP - pane already the correct size
@@ -4386,7 +4372,7 @@
                             // east/west have same top, bottom & height as center
                             CSS.top = newCenter.top;
                             CSS.bottom = newCenter.bottom;
-                            s.newSize = newCenter.height
+                            s.newSize = newCenter.height;
                             // NEW - allow pane to extend 'below' visible area rather than hide it
                             CSS.height = cssH($P, newCenter.height);
                             s.maxHeight = CSS.height;
@@ -4674,15 +4660,12 @@
                             setOuterHeight($C, newH, true); // true=autoHide
                             m.height = newH; // save new height
                         }
-                        ;
-
                         if (state.initialized)
                             _runCallbacks("onsizecontent_end", pane);
 
                         function _below($E) {
                             return max(s.css.paddingBottom, (parseInt($E.css("marginBottom"), 10) || 0));
                         }
-                        ;
 
                         function _measure() {
                             var
@@ -4697,7 +4680,7 @@
                                 , numFooters: $Fs.length
                                 , hiddenFooters: $Fs.length - $Fs_vis.length
                                 , spaceBelow: 0 // correct if no content footer ($E)
-                            }
+                            };
                             m.spaceAbove = m.top; // just for state - not used in calc
                             m.bottom = m.top + m.height;
                             if ($F.length)
@@ -4706,7 +4689,6 @@
                             else // no footer - check marginBottom on Content element itself
                                 m.spaceBelow = _below($C);
                         }
-                        ;
                     });
                 }
 
@@ -4718,7 +4700,7 @@
                  * @param {(string|Object)=}  evt_or_panes The pane(s) being resized
                  */
                 , sizeHandles = function (evt_or_panes) {
-                    var panes = evtPane.call(this, evt_or_panes)
+                    var panes = evtPane.call(this, evt_or_panes);
                     panes = panes ? panes.split(",") : _c.borderPanes;
 
                     $.each(panes, function (i, pane) {
@@ -4756,7 +4738,7 @@
                             //paneLen = $P.outerWidth(); // s.outerWidth ||
                             paneLen = sC.innerWidth; // handle offscreen-panes
                             s.resizerLength = paneLen;
-                            left = $.layout.cssNum($P, "left")
+                            left = $.layout.cssNum($P, "left");
                             $R.css({
                                 width: cssW($R, paneLen) // account for borders & padding
                                 , height: cssH($R, spacing) // ditto
@@ -5041,7 +5023,6 @@
                     _runCallbacks("onswap_end", pane1);
                     _runCallbacks("onswap_end", pane2);
 
-                    return;
 
                     function copy(n) { // n = pane
                         var
@@ -5056,7 +5037,6 @@
                             , options: $.extend(true, {}, options[n])
                         }
                     }
-                    ;
 
                     function move(oPane, pane) {
                         if (!oPane)
@@ -5123,7 +5103,6 @@
                         // DESTROY the object
                         oPane = null;
                     }
-                    ;
                 }
 
 
@@ -5195,8 +5174,6 @@
                 evt.returnValue = false; // CANCEL key
                 return false;
             }
-            ;
-
 
             /*
          * ######################################
@@ -5280,7 +5257,6 @@
                 });
 
             }
-            ;
 
             /**
              * @param {Object=}   [el] (optional) Can also be 'bound' to a click, mouseOver, or other event
@@ -5320,7 +5296,6 @@
                 // clear var
                 s.cssSaved = false;
             }
-            ;
 
             /*
          * #####################
@@ -5333,8 +5308,6 @@
             if (!$N.length) {
                 return _log(options.errors.containerMissing);
             }
-            ;
-
             // Users retrieve Instance of a layout with: $N.layout() OR $N.data("layout")
             // return the Instance-pointer if layout has already been initialized
             if ($N.data("layoutContainer") && $N.data("layout"))
@@ -5476,22 +5449,6 @@ jQuery.cookie = function (name, value, options) {
 };
 
 
-/**
- * jquery.layout.state 1.2
- * $Date: 2014-08-30 08:00:00 (Sat, 30 Aug 2014) $
- *
- * Copyright (c) 2014
- *   Kevin Dalman (http://allpro.net)
- *
- * Dual licensed under the GPL (http://www.gnu.org/licenses/gpl.html)
- * and MIT (http://www.opensource.org/licenses/mit-license.php) licenses.
- *
- * @requires: UI Layout 1.4.0 or higher
- * @requires: $.ui.cookie (above)
- *
- * @see: http://groups.google.com/group/jquery-ui-layout
- */
-;
 (function ($) {
 
     if (!$.layout)
@@ -5746,7 +5703,7 @@ jQuery.cookie = function (name, value, options) {
                     var s = o.size;
                     c = o.initClosed;
                     h = o.initHidden;
-                    var ar = o.autoResize
+                    var ar = o.autoResize;
                     state = inst.state[pane];
                     open = state.isVisible;
 
@@ -5879,7 +5836,6 @@ jQuery.cookie = function (name, value, options) {
                 }
                 return (a ? '[' : '{') + D.join(',') + (a ? ']' : '}');
             }
-            ;
         }
 
         /**
@@ -5983,24 +5939,6 @@ jQuery.cookie = function (name, value, options) {
 })(jQuery);
 
 
-/**
- * @preserve jquery.layout.buttons 1.0
- * $Date: 2011-07-16 08:00:00 (Sat, 16 July 2011) $
- *
- * Copyright (c) 2011
- *   Kevin Dalman (http://allpro.net)
- *
- * Dual licensed under the GPL (http://www.gnu.org/licenses/gpl.html)
- * and MIT (http://www.opensource.org/licenses/mit-license.php) licenses.
- *
- * @dependancies: UI Layout 1.3.0.rc30.1 or higher
- *
- * @support: http://groups.google.com/group/jquery-ui-layout
- *
- * Docs: [ to come ]
- * Tips: [ to come ]
- */
-;
 (function ($) {
 
     if (!$.layout)
@@ -6373,22 +6311,6 @@ jQuery.cookie = function (name, value, options) {
 })(jQuery);
 
 
-/**
- * UI Layout Plugin: Slide-Offscreen Animation
- *
- * Prevent panes from being 'hidden' so that an iframes/objects
- * does not reload/refresh when pane 'opens' again.
- * This plug-in adds a new animation called "slideOffscreen".
- * It is identical to the normal "slide" effect, but avoids hiding the element
- *
- * Requires Layout 1.3.0.RC30.1 or later for Close offscreen
- * Requires Layout 1.3.0.RC30.5 or later for Hide, initClosed & initHidden offscreen
- *
- * Version: 1.1 - 2012-11-18
- * Author:  Kevin Dalman (kevin@jquery-dev.com)
- * @preserve jquery.layout.slideOffscreen-1.1.js
- */
-;
 (function ($) {
 
 // Add a new "slideOffscreen" effect
@@ -6478,22 +6400,6 @@ jQuery.cookie = function (name, value, options) {
 })(jQuery);
 
 
-/**
- * UI Layout Callback: resizePaneAccordions
- *
- * This callback is used when a layout-pane contains 1 or more accordions
- * - whether the accordion a child of the pane or is nested within other elements
- * Assign this callback to the pane.onresize event:
- *
- * SAMPLE:
- * < jQuery UI 1.9: $("#elem").tabs({ show: $.layout.callbacks.resizePaneAccordions });
- * > jQuery UI 1.9: $("#elem").tabs({ activate: $.layout.callbacks.resizePaneAccordions });
- * $("body").layout({ center__onresize: $.layout.callbacks.resizePaneAccordions });
- *
- * Version: 1.2 - 2013-01-12
- * Author:  Kevin Dalman (kevin@jquery-dev.com)
- */
-;
 (function ($) {
     var _ = $.layout;
 
@@ -6516,27 +6422,6 @@ jQuery.cookie = function (name, value, options) {
 })(jQuery);
 
 
-/**
- * UI Layout Callback: resizeDataTables
- *
- * DataTables plugin homepage: http://datatables.net
- *
- * This callback is used when a layout-pane contains 1 or more DataTable objects:
- * - when the DataTable is a 'child' of the pane; or
- * - when the DataTable is a 'descendant' of the pane - ie, inside other elements
- *
- * Assign this callback to the pane.onresize event.
- * If the layout is inside a tab-panel, _also_ bind to tabs.show()
- *
- * SAMPLE:
- * $("#elem").tabs({ show: $.layout.callbacks.resizeDataTables });
- * $("body").layout({ center__onresize: $.layout.callbacks.resizeDataTables });
- *
- * Version: 1.0 - 2012-07-06
- * Author:  Robert Brower (atomofthought@yahoo.com)
- * @preserve jquery.layout.resizeDataTables-1.0.js
- */
-;
 (function ($) {
     $.layout.callbacks.resizeDataTables = function (x, ui) {
         // may be called EITHER from layout-pane.onresize OR tabs.show
@@ -6554,30 +6439,6 @@ jQuery.cookie = function (name, value, options) {
 })(jQuery);
 
 
-/**
- * UI Layout Callback: resizeTabLayout
- *
- * Requires Layout 1.3.0.rc29.15 or later
- *
- * This callback is used when a tab-panel is the container for a layout
- * The tab-layout can be initialized either before or after the tabs are created
- * Assign this callback to the tabs.show event:
- * - if the layout HAS been fully initialized already, it will be resized
- * - if the layout has NOT fully initialized, it will attempt to do so
- *  - if it cannot initialize, it will try again next time the tab is accessed
- *  - it also looks for ANY visible layout *inside* teh tab and resize/init it
- *
- * SAMPLE:
- * < jQuery UI 1.9: $("#elem").tabs({ show: $.layout.callbacks.resizeTabLayout });
- * > jQuery UI 1.9: $("#elem").tabs({ activate: $.layout.callbacks.resizeTabLayout });
- * $("body").layout({ center__onresize: $.layout.callbacks.resizeTabLayout });
- *
- * Version: 1.3 - 2013-01-12
- * Author:  Kevin Dalman (kevin@jquery-dev.com)
- */
-
-
-;
 (function ($) {
     var _ = $.layout;
 
@@ -6599,7 +6460,6 @@ jQuery.cookie = function (name, value, options) {
         });
     };
 })
-;
 (jQuery);
 
 
