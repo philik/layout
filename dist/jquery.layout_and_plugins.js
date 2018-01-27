@@ -1,8 +1,8 @@
 /**
  * @preserve
- * jquery.layout 1.5.12
- * $Date: 2014-11-29 08:00:00 (Sat, 29 November 2014) $
- * $Rev: 1.0404 $
+ * jquery.layout 1.6.0
+ * $Date: 2018-01-27 08:00:00 (Sat, 29 November 2014) $
+ * $Rev: 1.0.6.0 $
  *
  * Copyright (c) 2014 Kevin Dalman (http://jquery-dev.com)
  * Based on work by Fabrizio Balliano (http://www.fabrizioballiano.net)
@@ -20,6 +20,7 @@
  *
  * History
  * 2016/28/10 - Added responsiveness - marc magon
+ * 2018/01/27 - Updated the toggler class and responsive properties
  */
 
 /* JavaDoc Info: http://code.google.com/closure/compiler/docs/js-for-compiler.html
@@ -28,10 +29,6 @@
  * {number=} optional parameter
  * {*}   ALL types
  */
-/* TODO for jQ 2.x
- * check $.fn.disableSelection - this is in jQuery UI 1.9.x
- */
-
 // NOTE: For best readability, view with a fixed-width font and tabs equal to 4-chars
 
 (function ($) {
@@ -2627,94 +2624,31 @@
                             ;
                             // ADD INNER-SPANS TO TOGGLER
                             if (o.togglerContent_open) // ui-layout-open
-                            {
-                                var togElem = $(o.togglerContent_open);
-                                if (togElem) {
-                                    togElem
-                                        .data({
-                                            layoutEdge: pane
-                                            , layoutRole: "togglerContent"
-                                        })
-                                        .data("layoutRole", "togglerContent")
-                                        .data("layoutEdge", pane)
-                                        .addClass("content content-open")
-                                        .css("display", "none")
-                                        .appendTo($T)
-                                    ;
-                                }
-                                else {
-                                    togElem = $.parseHTML(o.togglerContent_open);
-                                    if (toglElem) {
-                                        togElem
-                                            .data({
-                                                layoutEdge: pane
-                                                , layoutRole: "togglerContent"
-                                            })
-                                            .data("layoutRole", "togglerContent")
-                                            .data("layoutEdge", pane)
-                                            .addClass("content content-open")
-                                            .css("display", "none")
-                                            .appendTo($T)
-                                        ;
-                                    }
-                                    else
-                                        $("<span>" + o.togglerContent_open + "</span>")
-                                            .data({
-                                                layoutEdge: pane
-                                                , layoutRole: "togglerContent"
-                                            })
-                                            .data("layoutRole", "togglerContent")
-                                            .data("layoutEdge", pane)
-                                            .addClass("content content-open")
-                                            .css("display", "none")
-                                            .appendTo($T)
-                                        ;
-                                }
-                            }
+                                $("<span>" + o.togglerContent_open + "</span>")
+                                    .data({
+                                        layoutEdge: pane
+                                        , layoutRole: "togglerContent"
+                                    })
+                                    .data("layoutRole", "togglerContent")
+                                    .data("layoutEdge", pane)
+                                    .addClass("content content-open")
+                                    .css("display", "none")
+                                    .appendTo($T)
+                                //.hover( addHover, removeHover ) // use ui-layout-toggler-west-hover .content-open instead!
+                                ;
                             if (o.togglerContent_closed) // ui-layout-closed
-                            {
-                                var togElem = $(o.togglerContent_closed);
-                                if (togElem) {
-                                    togElem
-                                        .data({
-                                            layoutEdge: pane
-                                            , layoutRole: "togglerContent"
-                                        })
-                                        .addClass("content content-closed")
-                                        .css("display", "none")
-                                        .appendTo($T)
-                                    //.hover( addHover, removeHover ) // use ui-layout-toggler-west-hover .content-closed instead!
-                                    ;
-                                }
-                                else {
-                                    togElem = $.parseHTML(o.togglerContent_closed);
-                                    if (togElem) {
-                                        togElem
-                                            .data({
-                                                layoutEdge: pane
-                                                , layoutRole: "togglerContent"
-                                            })
-                                            .addClass("content content-closed")
-                                            .css("display", "none")
-                                            .appendTo($T)
-                                        //.hover( addHover, removeHover ) // use ui-layout-toggler-west-hover .content-closed instead!
-                                        ;
-                                    }
-                                    else
-                                        $("<span>" + o.togglerContent_closed + "</span>")
-                                            .data({
-                                                layoutEdge: pane
-                                                , layoutRole: "togglerContent"
-                                            })
-                                            .addClass("content content-closed")
-                                            .css("display", "none")
-                                            .appendTo($T)
-                                        //.hover( addHover, removeHover ) // use ui-layout-toggler-west-hover .content-closed instead!
-                                        ;
-                                }
-                                // ADD TOGGLER.click/.hover
-                                enableClosable(pane);
-                            }
+                                $("<span>" + o.togglerContent_closed + "</span>")
+                                    .data({
+                                        layoutEdge: pane
+                                        , layoutRole: "togglerContent"
+                                    })
+                                    .addClass("content content-closed")
+                                    .css("display", "none")
+                                    .appendTo($T)
+                                //.hover( addHover, removeHover ) // use ui-layout-toggler-west-hover .content-closed instead!
+                                ;
+                            // ADD TOGGLER.click/.hover
+                            enableClosable(pane);
                         }
 
                         // add Draggable events

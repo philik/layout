@@ -1,6 +1,22 @@
 jQuery UI Layout
 ================
 
+1.5.12.2 - 1.16.0
+------------------
+- Updated responsive features to be more dynamic with size control and dynamic construction variations.
+- Updated the demo pages to reflect a true representation of JQuery 3 and JQuery UI 1.12
+- Allows for elements to be specified as toggle contents as well as the pre-existing html. These elements are moved to the toggle location and various classes are applied in the default manner.
+- New Demo Site with Updated demos and interactions 
+- Fully Integrated with the <B>JWebSwing McroProfile Web Framework (Java) </b> 
+
+* http://www.jwebswing.com 
+* http://www.github.com/JWebSwing
+* http://www.github.com/JWebSwing/JQLayoutPlugin
+
+No more support for JQuery 2
+================ 
+Please grab the 1.5.12.2 branch, used in PrimeFaces.
+
 1.4.4 - 1.5.12
 ----------------
 - **Responsiveness added directly to pane options. Use with .addToggle() to add a button to show in a certain state
