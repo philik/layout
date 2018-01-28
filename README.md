@@ -13,10 +13,6 @@ jQuery UI Layout
 * http://www.github.com/JWebSwing
 * http://www.github.com/JWebSwing/JQLayoutPlugin
 
-No more support for JQuery 2
-================ 
-Please grab the 1.5.12.2 branch, used in PrimeFaces.
-
 1.4.4 - 1.5.12
 ----------------
 - **Responsiveness added directly to pane options. Use with .addToggle() to add a button to show in a certain state
