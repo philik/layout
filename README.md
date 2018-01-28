@@ -7,11 +7,6 @@ jQuery UI Layout
 - Updated the demo pages to reflect a true representation of JQuery 3 and JQuery UI 1.12
 - Allows for elements to be specified as toggle contents as well as the pre-existing html. These elements are moved to the toggle location and various classes are applied in the default manner.
 - New Demo Site with Updated demos and interactions 
-- Fully Integrated with the <B>JWebSwing McroProfile Web Framework (Java) </b> 
-
-* http://www.jwebswing.com 
-* http://www.github.com/JWebSwing
-* http://www.github.com/JWebSwing/JQLayoutPlugin
 
 1.4.4 - 1.5.12
 ----------------
