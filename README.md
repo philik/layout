@@ -1,7 +1,7 @@
 jQuery UI Layout
 ================
 
-1.5.12.2 - 1.16.0
+1.5.12.2 - 1.6.0
 ------------------
 - Updated responsive features to be more dynamic with size control and dynamic construction variations.
 - Updated the demo pages to reflect a true representation of JQuery 3 and JQuery UI 1.12
